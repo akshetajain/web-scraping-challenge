@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars Updates</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1>UPDATES ON MARS</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Updates!</a></p>
+    </div>
+
+    <div class="row" id="mission-to-mars">
+      <div class="col-md-12">
+        <h4 class="heading">{{mars.Headline}}</h4>  
+        <br>
+        <h4 class="heading">{{mars.Description}}</h4>
+        <br>
+        <img class="image" src = {{mars.Featured_Image}}>
+        <br>
+        <br>
+        <br>
+        <div>
+        {{mars.Mars_Facts|safe}}
+        </div>
+        <br>
+        <br>
+        <br>
+        {% for x in mars.Hemisphere_Image_Links %}
+        <img class="image" src = {{x.img_url}}>
+        <h4 class="heading">{{x.title}}</h4>
+        {% endfor %}
+        <br>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
